@@ -1,15 +1,3 @@
-let createAndAppend = function ({ className, parentElement, value,tag}={className, parentElement, value,tag: 'div'}) {
-    let element = document.createElement(tag);
-    element.className = className;
-    if (value) {
-        element.innerHTML = value;
-    }
-
-    parentElement.appendChild(element);
-
-    return element;
-}
-
 class Game {
     constructor(parentElement, size=4) {
         let gameFieldElement =createAndAppend({
