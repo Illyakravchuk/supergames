@@ -10,4 +10,8 @@ let createAndAppend = function ({ className, parentElement, value},tag ='div') {
     return element;
 }
 
+let randomInterval = function(from, to) { // (getrandomInt), (min, max)
+    return Math.round(Math.random() * (to - from + 1) + from);
+}
+
 let game = new Game(document.body, 4);
