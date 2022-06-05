@@ -19,10 +19,14 @@ class Game {
             parentElement:gameFieldElement
         });
 
+        this.field =[];
+
         for (let i =0 ; i < size; i++){
+            this.field[i]=[]
             for (let k = 0; k < size; k++){
-               new Cell(fieldElement);
+                this.field[i][k] = new Cell(fieldElement);
             }
         }
+        console.log(this.field);
     }
 }
