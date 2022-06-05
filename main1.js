@@ -10,4 +10,4 @@ let createAndAppend = function ({ className, parentElement, value},tag ='div') {
     return element;
 }
 
-new Game(document.body, 4);
+let game = new Game(document.body, 4);
