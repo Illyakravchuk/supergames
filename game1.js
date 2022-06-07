@@ -1,5 +1,8 @@
+'use strict';
+
 class Game {
     constructor(parentElement, size=4) {
+        this.size = size;
         let gameFieldElement =createAndAppend({
             className: 'game',
             parentElement
@@ -47,5 +50,44 @@ class Game {
             alert('You lose!');
         }
         // check if you have no empty cells left, then you lost
+    }
+
+    moveRight() {
+        let hasMoved = false;
+        for ( let i = 0; i < this.size; i++ ) {
+            for ( let k = this.size - 2; k >= 0; k-- ) {
+                let currentCell = this.field[i][k];
+                if (currentCell.isEmpty) {
+                    continue;
+                }
+
+                let nextCellKey = k + 1;
+
+                while ( nextCellKey < this.size) {
+
+                    let nextCell = this.field[i][nextCellKey];
+
+                    if (!nextCell.isEmpty || this.isLastKey(nextCellKey)) {
+                        if ((nextCell.isEmpty && this.isLastKey(nextCellKey)) // last cell with no value
+                            || (nextCell.isSameTo(currentCell))) {
+                            this.field[i][nextCellKey].merge(currentCell);
+                            hasMoved = true;
+                        } else if (!nextCell.isEmpty && nextCellKey - 1 != k) {
+                            this.field[i][nextCellKey - 1].merge(currentCell);
+                            hasMoved = true;
+                        }
+                        break;
+                    }
+                    nextCellKey++;
+                    nextCell = this.field[i][nextCellKey];
+                }
+            }
+        }
+        if (hasMoved) {
+            this.spawnUnit();
+        }
+    }
+    isLastKey(key) {
+        return key == (this.size - 1);
     }
 }
