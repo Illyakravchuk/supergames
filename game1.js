@@ -30,6 +30,25 @@ class Game {
                 this.field[i][k] = new Cell(fieldElement);
             }
         }
+
+        window.onkeyup = function(e) {
+            switch (e.keyCode) {
+                case 37:
+                    this.moveLeft();
+                    break;
+                case 38:
+                    this.moveTop();
+                    break;
+                case 39:
+                    this.moveRight();
+                    break;
+                case 40:
+                    this.moveDown();
+                    break;
+
+            }
+        }.bind(this);
+
         console.log(this.field);
     }
 
