@@ -153,7 +153,7 @@ class Game {
                             this.field[nextCellKey][k].merge(currentCell);
                             hasMoved = true;
                         } else if (!nextCell.isEmpty && nextCellKey - 1 != i) {
-                            this.field[nextCellKey -1][k].merge(currentCell);
+                            this.field[nextCellKey - 1][k].merge(currentCell);
                             hasMoved = true;
                         }
                         break;
@@ -168,4 +168,39 @@ class Game {
         }
     }
 
+    moveTop() {
+        let hasMoved = false;
+        for (let k = 0; k < this.size; k++) {
+            for ( let i = 1; i < this.size ; i++  ) {
+                let currentCell = this.field[i][k];
+                if (currentCell.isEmpty) {
+                    continue;
+                }
+
+                let nextCellKey = i - 1;
+
+                while ( nextCellKey < this.size) {
+
+                    let nextCell = this.field[nextCellKey][k];
+
+                    if (!nextCell.isEmpty || this.isFirstKey(nextCellKey)) {
+                        if ((nextCell.isEmpty && this.isFirstKey(nextCellKey)) // last cell with no value
+                            || (nextCell.isSameTo(currentCell))) {
+                            this.field[nextCellKey][k].merge(currentCell);
+                            hasMoved = true;
+                        } else if (!nextCell.isEmpty && nextCellKey + 1 != i) {
+                            this.field[nextCellKey + 1][k].merge(currentCell);
+                            hasMoved = true;
+                        }
+                        break;
+                    }
+                    nextCellKey--;
+                    nextCell = this.field[nextCellKey][k];
+                }
+            }
+        }
+        if (hasMoved) {
+            this.spawnUnit();
+        }
+    }
 }
