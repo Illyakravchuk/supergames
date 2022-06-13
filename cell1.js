@@ -1,3 +1,5 @@
+'use strict';
+
 class Cell {
     constructor(fieldElement, game) {
         this.game = game;
