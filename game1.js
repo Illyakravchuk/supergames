@@ -8,14 +8,12 @@ class Game {
             parentElement
         });
 
-        let headerElement = createAndAppend({
+        this.headerElement = createAndAppend({
             className: 'header',
             parentElement:gameFieldElement
         });
 
         this.rating = 0;
-
-        headerElement.innerHTML = 'Rating: ' + this.rating;
 
         let fieldElement = createAndAppend({
             className: 'field',
@@ -27,7 +25,7 @@ class Game {
         for (let i =0 ; i < size; i++){
             this.field[i]=[]
             for (let k = 0; k < size; k++){
-                this.field[i][k] = new Cell(fieldElement);
+                this.field[i][k] = new Cell(fieldElement, this);
             }
         }
 
@@ -69,6 +67,19 @@ class Game {
             alert('You lose!');
         }
         // check if you have no empty cells left, then you lost
+    }
+
+    set rating(value) {
+        this._rating = value;
+        this.headerElement.innerHTML = 'Rating: ' + value;
+    }
+
+    get rating() {
+        return this._rating;
+    }
+
+    addRating(value) {
+        this.rating += value;
     }
 
     moveRight() {
@@ -154,7 +165,7 @@ class Game {
     moveDown() {
         let hasMoved = false;
         for (let k = 0; k < this.size; k++) {
-            for ( let i = this.size -2; i >= 0; i--  ) {
+            for ( let i = this.size -2; i >= 0; i-- ) {
                 let currentCell = this.field[i][k];
                 if (currentCell.isEmpty) {
                     continue;
