@@ -1,5 +1,6 @@
 class Cell {
-    constructor(fieldElement) {
+    constructor(fieldElement, game) {
+        this.game = game;
         this.element = createAndAppend({
             className: 'cell',
             parentElement: fieldElement
@@ -27,7 +28,12 @@ class Cell {
     }
 
     merge(cell) {
+           if (this.value) {
+               this.game.addRating(this.value + cell.value);
+           }
+
         this.value += cell.value;
+
         cell.clear();
     }
 
