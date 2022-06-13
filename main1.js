@@ -1,3 +1,5 @@
+'use strict'
+
 let createAndAppend = function ({ className, parentElement, value},tag ='div') {
     let element = document.createElement(tag);
     element.className = className;
@@ -10,7 +12,7 @@ let createAndAppend = function ({ className, parentElement, value},tag ='div') {
     return element;
 }
 
-let randomInterval = function(from, to) { // (getrandomInt), (min, max)
+let randomInterval = function(from, to) {
     return Math.round(Math.random() * (to - from + 1) + from);
 }
 
