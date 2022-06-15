@@ -13,24 +13,26 @@ html, body {
     align-items: center;
     flex-direction: column;
     background-color: #c90d0d;
+    background-image: url(/supergame/kyiv.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
     .game .header {
-        height: 20vmin;
+        height: 10vmin;
         width: 80vmin;
         font-size: 7vmin;
-        background-color: #0033ff;
         box-sizing: border-box;
-        border-bottom: 1px solid #ffffff;
+        color: black;
     }
 
     .game .field {
+        position: relative;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         height: 80vmin;
         width: 80vmin;
-        background-color: #fda501;
 }
         .game .field .cell {
             display: flex;
@@ -40,7 +42,8 @@ html, body {
             width: 18vmin;
             margin: 1vmin;
             box-sizing: border-box;
-            border: 2px solid green;
+            border: 5px solid green;
             border-radius: 2vmin;
             font-size: 10vmin;
+            background-color: burlywood;
         }
