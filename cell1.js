@@ -1,49 +1,49 @@
 'use strict';
 
 class Cell {
-    constructor(fieldElement, game) {
-        this.game = game;
-        this.element = createAndAppend({
-            className: 'cell',
-            parentElement: fieldElement
-        });
+  constructor(fieldElement, game) {
+    this.game = game;
+    this.element = createAndAppend({
+      className: 'cell',
+      parentElement: fieldElement
+    });
 
-        if (Math.random() > 0.8) {
-            this.spawn();
-        }
+    if (Math.random() > 0.8) {
+      this.spawn();
+    }
+  }
+
+  get value() {
+    return this._value || 0;
+  }
+
+  set value(value) {
+    this._value = value;
+    this.element.innerHTML = value === 0 ? '' : value;
+  }
+  spawn() {
+    this.value = Math.random() > 0.5 ? 4 : 2;
+  }
+
+  clear() {
+    this.value = '';
+  }
+
+  merge(cell) {
+    if (this.value) {
+      this.game.addRating(this.value + cell.value);
     }
 
-    get value() {
-        return this._value || 0;
-    }
+    this.value += cell.value;
 
-    set value(value) {
-        this._value = value;
-        this.element.innerHTML = value === 0 ? '' : value;
-    }
-    spawn() {
-        this.value = Math.random() > 0.5 ? 4 : 2;
-    }
+    cell.clear();
+  }
 
-    clear() {
-        this.value = '';
-    }
+  isSameTo(cell) {
+    return this.value === cell.value;
+  }
 
-    merge(cell) {
-           if (this.value) {
-               this.game.addRating(this.value + cell.value);
-           }
-
-        this.value += cell.value;
-
-        cell.clear();
-    }
-
-    isSameTo(cell) {
-        return this.value == cell.value;
-    }
-
-    get isEmpty () {
-        return this.value == 0;
-    }
+  get isEmpty() {
+    return this.value === 0;
+  }
 }
