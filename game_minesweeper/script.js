@@ -23,6 +23,13 @@ function startGame(width, height ,bombsCount){         //the main function that 
 
     });
 
+    function isValid(row, column) {   //checks for validity
+        return row >= 0
+        && row < height
+        && column >= 0
+        && column < width;
+    }
+
     function getCount(row, column){         // counts the bombs nearby
         let count = 0;
         for(let x = -1; x <= 1; x++){
@@ -36,13 +43,40 @@ function startGame(width, height ,bombsCount){         //the main function that 
         return count;
     }
     function open(row, column){      // opens the cell and determines whether there is a bomb in the cell
+        if (!isValid(row, column)) return;
+
         const index = row * width + column;
         const cell = cells[index];
-        cell.innerHTML = isBomb(row, column) ? 'X' : getCount(row, column);
+
+        if (cell.disabled === true) return;
+
         cell.disabled = true;
+
+        if (isBomb(row, column)) {
+            cell.innerHTML =  'X'  ;
+            alert ('you lose');
+            return;
+        }
+
+         const count = getCount(row, column);
+
+        if (count !== 0) {
+            cell.innerHTML =  count;
+            return;
+
+        }
+        for(let x = -1; x <= 1; x++){
+            for(let y = -1; y <= 1; y++){
+                open(row + y,column + x)
+            }
+
+        }
+
     }
 
     function isBomb(row, column) {     // determines if there is a bomb in this cell
+        if (!isValid(row, column)) return  false;
+
         const index = row * width + column;
 
         return bombs.includes(index);
