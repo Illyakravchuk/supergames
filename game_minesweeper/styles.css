@@ -1,8 +1,27 @@
+* {margin: 0; padding: 0;}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    text-align: center;
+    font-size: 25px;
+    font-weight: normal;
+    background: #333 url(/game_minesweeper/background.jpg) no-repeat 50% 50%;
+}
+h1 {
+    color: #c90d0d;
+}
 .field {
     display: grid;
-    grid-template-columns: repeat(8,40px);
+    grid-template-columns: repeat(8,60px);
+    align-items: center;
+    justify-content: center;
 }
 button {
-    height: 40px;
-    font-size: 24px;
+    height: 60px;
+    font-size: 35px;
+    color: indigo;
+
 }
