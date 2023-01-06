@@ -5,6 +5,7 @@ function startGame(width, height ,bombsCount){         //the main function that 
     const cellCount = width * height;
     field.innerHTML='<button></button>'.repeat(cellCount); //generating buttons
     const cells = [...field.children];
+    let closeCount = cellCount;
 
 
     const bombs = [...Array(cellCount).keys()]   //an array that transmits the coordinates of the generated bombs
@@ -57,11 +58,16 @@ function startGame(width, height ,bombsCount){         //the main function that 
             alert ('you lose');
             return;
         }
+        const count = getCount(row, column);
 
-         const count = getCount(row, column);
-
+        closeCount--;
         if (count !== 0) {
             cell.innerHTML =  count;
+            if (closeCount <= bombsCount) {
+                alert('you won');
+                return ;
+            }
+
             return;
 
         }
