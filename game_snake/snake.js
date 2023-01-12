@@ -42,7 +42,7 @@ function createGame() {    //generates a field
     ctx.drawImage(cherry, food.x, food.y);  //spawn cherry
 
     for (let i = 0; i < snake.length; i++) { // display snake
-        ctx.fillStyle = "green";
+        ctx.fillStyle = i == 0 ? "green" : "red";
         ctx.fillRect(snake[i].x, snake[i].y, cellSize, cellSize);
     }
     ctx.fillStyle = "white";
@@ -52,28 +52,42 @@ function createGame() {    //generates a field
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
 
-    snake.pop();
-function headPosition (){   //changing the position of the snake's head
-    if (dir == "left")
-        return snakeX -= cellSize;
+    if(snakeX == food.x && snakeY == food.y) {
+        rating++;
+        food = {
+            x: Math.floor(Math.random() * 17 + 1) * cellSize,
+            y: Math.floor(Math.random() * 15 + 3) * cellSize,
+        };
+    } else {
+        snake.pop();
+    };
+    if(snakeX < cellSize && snakeX > cellSize * 17
+    || snakeY < 3 * cellSize || snakeY > cellSize *17) {
+        clearInterval(game);
+        alert('you lose');
+    }
+    switch (dir) {     //changing the position of the snake's head
+        case 'left':
+            snakeX -= cellSize;
+            break;
+        case 'right':
+            snakeX += cellSize;
+            break;
+        case 'up':
+            snakeY -= cellSize;
+            break;
+        case 'down':
+            snakeY += cellSize;
+            break;
+    };
 
-   else if (dir == "right")
-        return snakeX += cellSize;
-
-   else if (dir == "up")
-        return snakeY -= cellSize;
-
-    else if (dir == "down")
-        return snakeY += cellSize;
-};
-    headPosition ()
     let newHead = {
         x: snakeX,
         y: snakeY,
     };
 
     snake.unshift(newHead);
-    };
+};
 
 
 
