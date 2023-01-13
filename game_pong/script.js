@@ -1,3 +1,4 @@
+'use strict'
 import Ball from "./ball.js";
 import Paddle from "./paddle.js";
 

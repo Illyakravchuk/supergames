@@ -5,7 +5,7 @@ class Game {
     this.size = size;
     const gameFieldElement = createAndAppend({
       className: 'game',
-      parentElement
+      parentElement,
     });
 
     this.headerElement = createAndAppend({

@@ -1,3 +1,4 @@
+'use strict'
 const SPEED = 0.02;
 export default class Paddle {
     constructor(paddleElem) {
