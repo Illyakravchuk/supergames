@@ -1,3 +1,12 @@
+body {
+    text-align: center;
+    font-size: 25px;
+    font-weight: normal;
+    background: #333 url(/game_snake/nature.jpg) no-repeat 50% 50%;
+}
+h1 {
+    color: #241aab;
+}
 canvas {
     display: block;
     margin: 0 auto;

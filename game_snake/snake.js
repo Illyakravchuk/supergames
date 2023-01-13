@@ -36,6 +36,16 @@ function direction (event) {                    // handling of keyboard presses
     else if (event.keyCode == 40 && dir != "up")
         dir ="down";
 }
+
+function eatTail (head, arr) {
+    for (let i = 0 ; i < arr.length; i++){
+        if(head.x == arr[i].x && head.y == arr[i].y) {
+            clearInterval(game);
+          return   alert('you lose');
+        }
+    }
+}
+
 function createGame() {    //generates a field
     ctx.drawImage(gameField, 0, 0);
 
@@ -61,10 +71,10 @@ function createGame() {    //generates a field
     } else {
         snake.pop();
     };
-    if(snakeX < cellSize && snakeX > cellSize * 17
-    || snakeY < 3 * cellSize || snakeY > cellSize *17) {
+    if(snakeX <  cellSize || snakeX > cellSize * 17   //the instruction prohibits going beyond the field
+        || snakeY < 3 * cellSize || snakeY > cellSize * 17) {
         clearInterval(game);
-        alert('you lose');
+        return alert('you lose');
     }
     switch (dir) {     //changing the position of the snake's head
         case 'left':
@@ -85,6 +95,8 @@ function createGame() {    //generates a field
         x: snakeX,
         y: snakeY,
     };
+
+    eatTail(newHead, snake);
 
     snake.unshift(newHead);
 };
