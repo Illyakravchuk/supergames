@@ -1,5 +1,5 @@
 'use strict';
-startGame(8, 8, 15);
+startGame(8, 8, 8);
 function startGame(width, height, bombsCount) {
   //the main function that starts all processes
   const field = document.querySelector('.field');

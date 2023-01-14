@@ -1,0 +1,2 @@
+# About the game
+The goal of playing pong is to score more points. To score 1 point, the computer must pass the ball through the paddle. The player's paddle is controlled by the movement of the computer mouse.

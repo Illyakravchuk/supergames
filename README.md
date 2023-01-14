@@ -1,0 +1,2 @@
+# About the project
+We have created a web page with which you can play your favorite game. The page has a menu where you can choose a game. You can choose from such games as: Mineswaper, Snake, Pong, 2048.
