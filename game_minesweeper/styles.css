@@ -1,66 +1,108 @@
 * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  html, body {
-    width: 100%;
-    height: 100%;
-  }
-  
-  body {
-    font: Tahoma;
-    text-align: center;
-    font-size: 25px;
-    font-weight: normal;
-    background: #333 url(/game_minesweeper/background.jpg) no-repeat 50% 50%;
-  }
-  
-  h1 {
-    color: #c90d0d;
-  }
-  
-  .field {
-    display: grid;
-    grid-template-columns: repeat(8, 60px);
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  button {
-    height: 60px;
-    width: 60px;
-    font-size: 35px;
-    color: indigo;
-    background-color: white;
-    border: 1px solid #ccc;
-    cursor: pointer;
-  }
-  
-  button:disabled {
-    background-color: #f0f0f0;
-  }
-  
-  button.flag {
-    background-color: yellow;
-  }
-  
-  .rating {
-    font-size: 24px;
-    color: white;
-    margin-top: 20px;
-  }
-  
-  #restart-button {
-    width: 200px;
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 24px;
-    cursor: pointer;
-  }
+  margin: 0;
+  padding: 0;
+}
 
-  button.bomb-hit {
-    background-color: red;
-  }
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font: Tahoma;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  background: #333 url(background.jpg) no-repeat 50% 50%;
+
+}
+
+h1 {
+  color: #c90d0d;
+}
+
+.field {
+  display: grid;
+  grid-template-columns: repeat(8, 60px);
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  height: 60px;
+  width: 60px;
+  font-size: 35px;
+  color: indigo;
+  background-color: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s; /* Додаємо анімацію для кнопок */
+}
+
+button:disabled {
+  background-color: #c7c7c7;
+}
+
+button.flag {
+  background-color: white;
+}
+
+.rating, #timer {
+  display: inline-block;
+  width: auto; /* Автоматична ширина для тексту */
+  font-size: 24px;
+  color: white;
+  padding: 10px 20px; /* Відступи для кращого вигляду */
+  border-radius: 8px; /* Заокруглені кути */
+  background-color: rgb(186, 212, 121); /* Напівпрозорий білий фон */
+  margin-top: 20px;
+}
+#timer {
+  background-color: rgba(0, 255, 0, 0.7); /* Напівпрозорий зелений фон */
+}
+
+#restart-button {
+  width: 200px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+#restart-button:hover {
+  background-color: #d668d1; /* Трохи темніший колір при ховері */
+}
+
+button.bomb-hit {
+  background-color: red;
+}
+
+button:focus {
+  outline: none; /* Відключаємо обводку при фокусі на кнопці */
+}
+
+/* Style for the start button */
+#start-button {
+  display: inline-block;
+  width: 400px; /* Автоматична ширина для тексту */
   
+  height: 80px;
+  font-size: 40px;
+  color: white;
+  padding: 10px 20px; /* Відступи для кращого вигляду */
+  border-radius: 8px; /* Заокруглені кути */
+  background-color: rgb(39, 41, 135); /* Напівпрозорий білий фон */
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+#start-button:hover {
+  background-color: #433cac;
+}
+
+/* Hide the button once clicked */
+#start-button.hidden {
+  display: none;
+}
+
+
