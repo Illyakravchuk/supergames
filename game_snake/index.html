@@ -2,14 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake</title>
-  <link  rel ="stylesheet" href ="styles.css">
-  <script src ="snake.js" defer ></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../site/styles.css">
+    <script src="../site/index.js" defer></script>
+    <script src="snake.js" defer></script>
 </head>
 <body>
-  <h1>Snake</h1>
-  <canvas id="game" width="608" height="608"></canvas>
-
+    <nav class="menu">
+        <ul>
+            <li><a href="../game_minesweeper/index.html">Minesweeper</a></li>
+            <li><a href="../game_2048/index.html">2048</a></li>
+            <li><a href="../game_pong/index.html">Pong</a></li>
+            <li><a href="index.html" class="active">Snake</a></li>
+        </ul>
+        <div class="indicator"></div>
+    </nav>
+    <h1 class="game_name">Snake</h1>
+    <canvas id="game" width="608" height="608"></canvas>
 </body>
 </html>

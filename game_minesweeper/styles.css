@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html, body {
@@ -9,16 +10,72 @@ html, body {
 }
 
 body {
-  font: Tahoma;
+  font-family: Tahoma, sans-serif;
   text-align: center;
   font-weight: bold;
   font-size: 25px;
   background: #333 url(background.jpg) no-repeat 50% 50%;
-
+  background-size: cover;
+  height: 800px;
 }
 
 h1 {
   color: #c90d0d;
+  margin-top: 120px;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #000;
+  z-index: 1000;
+  height: 60px;
+  display: flex;
+  align-items: center; 
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.menu li {
+  margin: 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #546E7A;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: block;
+  padding: 20px 40px;
+  font-size: 18px;
+  transition: color 0.3s, background 0.3s;
+}
+
+.menu a:hover {
+  color: #fff;
+}
+
+.menu a.active {
+  color: #fff;
+}
+
+.indicator {
+  height: 5px;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-radius: 3px 3px 0 0;
+  transition: 0.5s;
 }
 
 .field {
@@ -37,7 +94,7 @@ button {
   background-color: white;
   border: 1px solid #ccc;
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s; /* Додаємо анімацію для кнопок */
+  transition: background-color 0.2s, color 0.2s;
 }
 
 button:disabled {
@@ -48,18 +105,26 @@ button.flag {
   background-color: white;
 }
 
+button.bomb-hit {
+  background-color: red;
+}
+
+button:focus {
+  outline: none;
+}
+
 .rating, #timer {
   display: inline-block;
-  width: auto; /* Автоматична ширина для тексту */
   font-size: 24px;
   color: white;
-  padding: 10px 20px; /* Відступи для кращого вигляду */
-  border-radius: 8px; /* Заокруглені кути */
-  background-color: rgb(186, 212, 121); /* Напівпрозорий білий фон */
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: rgb(186, 212, 121);
   margin-top: 20px;
 }
+
 #timer {
-  background-color: rgba(0, 255, 0, 0.7); /* Напівпрозорий зелений фон */
+  background-color: rgba(0, 255, 0, 0.7);
 }
 
 #restart-button {
@@ -68,30 +133,24 @@ button.flag {
   padding: 10px 20px;
   font-size: 24px;
   cursor: pointer;
+  border-radius: 15px;
+  background-color: #ebb4e8;
+  border: 3px solid #c15ebc;
 }
+
 #restart-button:hover {
-  background-color: #d668d1; /* Трохи темніший колір при ховері */
+  background-color: #d668d1;
 }
 
-button.bomb-hit {
-  background-color: red;
-}
-
-button:focus {
-  outline: none; /* Відключаємо обводку при фокусі на кнопці */
-}
-
-/* Style for the start button */
 #start-button {
   display: inline-block;
-  width: 400px; /* Автоматична ширина для тексту */
-  
+  width: 400px;
   height: 80px;
   font-size: 40px;
   color: white;
-  padding: 10px 20px; /* Відступи для кращого вигляду */
-  border-radius: 8px; /* Заокруглені кути */
-  background-color: rgb(39, 41, 135); /* Напівпрозорий білий фон */
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: rgb(39, 41, 135);
   margin-top: 20px;
   transition: background-color 0.3s;
 }
@@ -100,9 +159,6 @@ button:focus {
   background-color: #433cac;
 }
 
-/* Hide the button once clicked */
 #start-button.hidden {
   display: none;
 }
-
-
