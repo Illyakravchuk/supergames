@@ -75,3 +75,50 @@ canvas {
     border: 4px solid #55753b;
 
 }
+
+.restart-button {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 10px 30px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #FBF309;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    color: #214C9C;
+    width: 300px;
+    height: 60px;
+}
+
+.restart-button:hover {
+    background-color: #FAC401;
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+    color: #214C9C;
+}
+
+.restart-button:active {
+    background-color: #003d82;
+    transform: translateY(0);
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
+}
+
+#game-over-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: red;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+}
