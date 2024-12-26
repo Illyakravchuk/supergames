@@ -8,16 +8,29 @@
     <title>2048</title>
 </head>
 <body>
+    <nav class="menu">
+        <ul>
+            <li><a href="../game_minesweeper/index.html">Minesweeper</a></li>
+            <li><a href="../game_2048/index.html" class="active">2048</a></li>
+            <li><a href="../game_pong/index.html">Pong</a></li>
+            <li><a href="../game_snake/index.html">Snake</a></li>
+          </ul>
+        <div class="indicator"></div>
+    </nav>
+
     <div class="game">
         <div class="header">
             <div id="rating" class="rating">Рейтинг: 0</div>
             <div id="timer" class="timer">Час: 0:00</div>
-            <button id="restartButton" class="restart-button" style="display: none;">Грати знову</button> <!-- Initially hidden -->
+            <button id="restartButton" class="restart-button" style="display: none;">Грати знову</button>
             <button id="startButton" class="start-button">Почніть гру</button>
         </div>
         
-        <div class="field" style="display: none;"></div> <!-- Initially hidden -->
+        <div class="field" style="display: none;"></div>
     </div>
+
+    <div id="gameMessages" class="game-messages"></div>
+
 
     <script src="utils.js"></script>
     <script src="cell.js"></script>

@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Minesweeper</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="game.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minesweeper</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="game.js" defer></script>
+  <script src="../site/index.js" defer></script>
 </head>
 <body>
+  <nav class="menu">
+    <ul>
+      <li><a href="../game_minesweeper/index.html" class="active">Minesweeper</a></li>
+      <li><a href="../game_2048/index.html">2048</a></li>
+      <li><a href="../game_pong/index.html">Pong</a></li>
+      <li><a href="../game_snake/index.html">Snake</a></li>
+    </ul>
+    <div class="indicator"></div>
+  </nav>
+
   <h1>Minesweeper</h1>
   <div class="rating">Відкрито клітинок: <span id="opened-count">0</span></div>
   <div id="timer">Час: 0:00</div>
-  <div class="field" style="display: none;"></div> <!-- Initially hidden -->
+  <div class="field" style="display: none;"></div>
   <div id="start-container">
     <button id="start-button">Почати гру</button>
   </div>
   
-  <button id="restart-button" style="display: none;">Грати заново</button> <!-- Initially hidden -->
+
+  <div id="game-over-message" class="hidden">
+    <p id="game-over-text">Гра закінчена!</p>
+    <button id="restart-button" style="display: none;">Грати заново</button>
+  </div>
   
+
 </body>
 </html>

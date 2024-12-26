@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" type="module"></script>
-    <title>PingPong</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pong</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <script src="../site/index.js" defer></script>
 </head>
 <body>
-<div class="score">
+  <nav class="menu">
+    <ul>
+      <li><a href="../game_minesweeper/index.html">Minesweeper</a></li>
+      <li><a href="../game_2048/index.html">2048</a></li>
+      <li><a href="../game_pong/index.html" class="active">Pong</a></li>
+      <li><a href="../game_snake/index.html">Snake</a></li>
+    </ul>
+    <div class="indicator"></div>
+  </nav>
+
+  <h1>Pong</h1>
+
+  <div class="score">
     <div id="player-score">0</div>
     <div id="computer-score">0</div>
-</div>
+  </div>
 
-<div class="ball" id="ball"></div>
-<div class="paddle left" id="player-paddle"></div>
-<div class="paddle right" id="computer-paddle"></div>
+  <div class="ball" id="ball"></div>
+  <div class="paddle left" id="player-paddle"></div>
+  <div class="paddle right" id="computer-paddle"></div>
 </body>
 </html>

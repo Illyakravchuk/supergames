@@ -13,6 +13,7 @@ body {
     margin: 0;
     background-color: var(--background-color);
     overflow: hidden;
+    position: relative;
 }
 
 .paddle {
@@ -24,6 +25,7 @@ body {
     transform: translateY(-50%);
     width: 1vh;
     height: 10vh;
+    z-index: 10; 
 }
 
 .paddle.left {
@@ -46,6 +48,7 @@ body {
     transform: translate(-50%, -50%);
     width: 2.5vh;
     height: 2.5vh;
+    z-index: 10; 
 }
 
 .score {
@@ -54,6 +57,7 @@ body {
     font-weight: bold;
     font-size: 7vh;
     color: var(--foreground-color);
+    z-index: 10; 
 }
 
 .score > * {
@@ -66,4 +70,58 @@ body {
 .score > :first-child {
     text-align: right;
     border-right: .5vh solid var(--foreground-color);
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    z-index: 1000; 
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.menu li {
+    margin: 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #546E7A;
+    text-transform: uppercase;
+    font-weight: bold !important;
+    display: block;
+    padding: 20px 40px;
+    font-size: 18px;
+    transition: color 0.3s, background 0.3s;
+}
+
+.menu a:hover {
+    color: #fff;
+}
+
+.menu a.active {
+    color: #fff;
+}
+
+.indicator {
+    height: 5px;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 3px 3px 0 0;
+    transition: 0.5s;
 }

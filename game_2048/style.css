@@ -1,19 +1,75 @@
-* { 
-    margin: 0; 
-    padding: 0; 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html, body {
     width: 100%;
     height: 100%;
     font-family: Arial, sans-serif;
-    overflow: hidden; /* Prevents scrolling */
+    overflow: hidden;
 }
 
 body {
     background-color: #f0f0f0;
 }
 
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    z-index: 1000;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.menu li {
+    margin: 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #546E7A;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    padding: 20px 40px;
+    font-size: 18px;
+    transition: color 0.3s, background 0.3s;
+}
+
+.menu a:hover {
+    color: #fff;
+}
+
+.menu a.active {
+    color: #fff;
+}
+
+.indicator {
+    height: 5px;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 3px 3px 0 0;
+    transition: 0.5s;
+}
+
+/* Гра */
 .game {
     position: relative;
     height: 100%;
@@ -26,6 +82,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    padding-top: 100px; 
 }
 
 .game .header {
@@ -38,12 +95,12 @@ body {
     box-sizing: border-box;
     color: black;
     position: fixed;
-    top: 0;
+    top: 100px; 
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
     padding: 1.5vmin;
-    background-color: rgba(255, 255, 255, 0.7); /* Transparent background */
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 1vmin;
 }
 
@@ -66,18 +123,18 @@ body {
 
 #restartButton:hover {
     background-color: #ba27cd;
-    transform: scale(1.1); /* Button grows on hover */
+    transform: scale(1.1); 
 }
 
 .game .field {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 колонки */
-    grid-gap: 0.1vmin; /* Зменшена відстань між клітинками */
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.1vmin;
     justify-content: center;
     align-items: center;
     height: 75vmin;
     width: 80vmin;
-    margin-top: 20vmin; /* Підкоригувати висоту для хедера */
+    margin-top: 20vmin;
     position: relative;
 }
 
@@ -87,7 +144,7 @@ body {
     justify-content: center;
     height: 15vmin;
     width: 15vmin;
-    margin: 0.5vmin; /* Зменшена відстань між клітинками */
+    margin: 0.5vmin;
     box-sizing: border-box;
     border: 5px solid #fff;
     border-radius: 1vmin;
@@ -108,14 +165,14 @@ body {
 .game .field .cell.value-512 { background-color: #2f92cc; color: white; }
 .game .field .cell.value-1024 { background-color: #207cb0; color: white; }
 .game .field .cell.value-2048 { background-color: #14688c; color: white; }
-/* Зміна кольору числа в залежності від значення плитки */
+
 .game .field .cell.value-2,
 .game .field .cell.value-4,
 .game .field .cell.value-8,
 .game .field .cell.value-16,
 .game .field .cell.value-32,
 .game .field .cell.value-64 {
-    color: #30172e; /* Темний колір для плиток до 64 */
+    color: #30172e;
 }
 
 .game .field .cell.value-128,
@@ -123,18 +180,17 @@ body {
 .game .field .cell.value-512,
 .game .field .cell.value-1024,
 .game .field .cell.value-2048 {
-    color: #ffffff; /* Білий колір для плиток після 64 */
-}
-.game .field .cell:hover {
-    transform: scale(1.05); /* Cells slightly grow when hovered */
+    color: #ffffff;
 }
 
-/* Ensure button stays visible and doesn't overlap */
+.game .field .cell:hover {
+    transform: scale(1.05);
+}
+
 #restartButton {
     z-index: 20;
 }
 
-/* Add a fade-in effect to elements */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -159,15 +215,42 @@ body {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s ease-in-out;
     border: none;
-   /* Spacing from the top of the screen */
 }
 
 .hide-button {
-    opacity: 0; /* Кнопка стає прозорою */
-    pointer-events: none; /* Знеактивуємо кнопку, щоб вона не реагувала на кліки */
+    opacity: 0;
+    pointer-events: none;
 }
 
 #startButton:hover {
     background-color: #ba27cd;
-    transform: scale(1.1); /* Button grows on hover */
+    transform: scale(1.1);
 }
+
+.game-messages {
+    position: fixed;
+    top: 50%; /* Центрування по вертикалі */
+    left: 50%; /* Центрування по горизонталі */
+    transform: translate(-50%, -50%); /* Центруємо елемент точно посередині */
+    background-color: rgba(0, 0, 0, 0.9); /* Темний фон */
+    color: white;
+    padding: 30px 40px; /* Збільшене відступи для більшого сповіщення */
+    border-radius: 10px; /* Краще округлення кутів */
+    font-size: 24px; /* Більший розмір шрифта */
+    font-weight: bold; /* Текст жирний для кращої видимості */
+    z-index: 1000;
+    display: none; /* Спочатку приховано */
+    text-align: center; /* Текст по центру */
+    max-width: 80%; /* Максимальна ширина для адаптивності */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Тінь для контрасту */
+    animation: fadeInOut 3s ease-in-out;
+  }
+  
+  @keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  
