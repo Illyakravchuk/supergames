@@ -226,3 +226,31 @@ body {
     background-color: #ba27cd;
     transform: scale(1.1);
 }
+
+.game-messages {
+    position: fixed;
+    top: 50%; /* Центрування по вертикалі */
+    left: 50%; /* Центрування по горизонталі */
+    transform: translate(-50%, -50%); /* Центруємо елемент точно посередині */
+    background-color: rgba(0, 0, 0, 0.9); /* Темний фон */
+    color: white;
+    padding: 30px 40px; /* Збільшене відступи для більшого сповіщення */
+    border-radius: 10px; /* Краще округлення кутів */
+    font-size: 24px; /* Більший розмір шрифта */
+    font-weight: bold; /* Текст жирний для кращої видимості */
+    z-index: 1000;
+    display: none; /* Спочатку приховано */
+    text-align: center; /* Текст по центру */
+    max-width: 80%; /* Максимальна ширина для адаптивності */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Тінь для контрасту */
+    animation: fadeInOut 3s ease-in-out;
+  }
+  
+  @keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  
