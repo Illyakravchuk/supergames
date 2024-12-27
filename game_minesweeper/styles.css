@@ -162,3 +162,37 @@ button:focus {
 #start-button.hidden {
   display: none;
 }
+
+#game-over-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: red;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  display: none;
+  z-index: 1000;
+}
+
+#game-over-message p {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#restart-button-over {
+  background-color: #ff4c4c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#restart-button-over:hover {
+  background-color: #ff7878;
+}
+
